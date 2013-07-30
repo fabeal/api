@@ -15,7 +15,7 @@ add, remove, get, edit, search
 
 ## Ping
 
-Ping method should return 'pong' message.
+Ping request should return 'pong' message.
 
 Calling `pong`
 
