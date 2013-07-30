@@ -1,5 +1,4 @@
 #Fabeal API
-==========
 
 [![Build Status](https://travis-ci.org/fuelphp/fuelphp.png?branch=master)](https://travis-ci.org/fuelphp/fuelphp)
 
