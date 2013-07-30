@@ -14,7 +14,7 @@ We provide REST API which empower offer main features for real estate offers: ad
 
 Ping request should return 'pong' message.
 
-Calling `pong`
+Calling `ping`
 
 ```
 GET: https://fabeal.com/api/v1/ping
