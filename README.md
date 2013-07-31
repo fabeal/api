@@ -26,7 +26,7 @@ The API consists of the following methods:
 	</tr>
 	<tr>
 		<td>GET</td>
-		<td>api/v1/property/1</td>
+		<td>api/v1/property/[[id]]</td>
 		<td>Retrieves detailed property data by id</td>
 	</tr>
 	<tr>
@@ -36,12 +36,12 @@ The API consists of the following methods:
 	</tr>
 	<tr>
 		<td>PUT</td>
-		<td>api/v1/property/1</td>
+		<td>api/v1/property/[[id]]</td>
 		<td>Updates property data by id</td>
 	</tr>
 	<tr>
 		<td>DELETE</td>
-		<td>api/v1/property/1</td>
+		<td>api/v1/property/[[id]]</td>
 		<td>Deletes (permanently) property by id</td>
 	</tr>
 	<tr>
@@ -60,9 +60,30 @@ To fast develop integration with Fabeal you can use following solutions:
 * Your own solution in any language
 * CURL library
 ```
-curl -i -X GET http://fabeal.v.l/api/v1/pin
+curl -i -X GET https://fabeal.com/api/v1/ping
 ```
 * Our library with extended examples written in PHP
+
+
+Verification
+------------------------
+Every call to our api except ping will check you by API key. Every business in Fabeal has its own api key. Api key can
+be included to url:
+```
+https://fabeal.com/api/v1/property/add?api_key=[[key]]
+```
+or can be included to POST/PUT/DELETE data providing that is not nested.
+
+
+Watermarks
+------------------------
+If you have selected option to default draw watermarks on images all photos added/updated by api will have watermark.
+Calling fabeal api you can add option 'draw_watermark' = false|true.
+Watermark variable can be included to url:
+```
+https://fabeal.com/api/v1/property/add?api_key=[[key]]&draw_watermark=[[bool]]
+```
+or can be included to POST/PUT/DELETE data providing that is not nested.
 
 
 ## Ping
