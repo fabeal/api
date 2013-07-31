@@ -112,26 +112,26 @@ Calling `Add`
 POST: https://fabeal.com/api/v1/property
 
 data = array{
-    'price' => '250000',
-    'title' => 'Lorem ipsum',
-    'description' => 'Lorem ipsum',
-    'area' => '80',
-    'rooms' => '3',
-    'rooms' => '3',
-    'offer_type' => 'sale',
-    'floor' => '3',
-    'built' => '1999',
-    'balconies' => '1',
-    'balconies' => '1',
-    'windows' => 'Lorem ipsum',
-    'city' => 'Warszawa',
-    'draft' => '1',
-    'garage' => '',
-    'basement' => '1',
-    'underground_parking' => '',
+    'price'         => '250000',
+    'title'         => 'Lorem ipsum',
+    'description'   => 'Lorem ipsum',
+    'area'          => '80',
+    'rooms'         => '3',
+    'rooms'         => '3',
+    'offer_type'    => 'sale',
+    'floor'         => '3',
+    'built'         => '1999',
+    'balconies'     => '1',
+    'balconies'     => '1',
+    'windows'       => 'Lorem ipsum',
+    'city'          => 'Warszawa',
+    'draft'         => '1',
+    'garage'        => '',
+    'basement'      => '1',
     'parking_place' => '1',
-    'secure_parking' => '',
-    'volume' =>  '0',
+    'secure_parking'=> '',
+    'volume'        =>  '0',
+    'underground_parking' => '',
     'photos' => array(
             'photo_name_1' => 'http://domain.com/photo_name_1.jpg',
             'photo_name_2' => 'http://domain.com/photo_name_2.bmp',
@@ -144,7 +144,7 @@ Return values
 
 ```
 HTTP/1.1 200 Created
-Content-Length: 18
+Content-Length: 16
 Content-Type: application/json
 
 "Property added"
