@@ -102,6 +102,54 @@ Calling `ping`
 GET: https://fabeal.com/api/v1/ping
 ```
 
+## Add
+
+Add property with all details and photos.
+
+Calling `Add`
+
+```
+POST: https://fabeal.com/api/v1/property
+
+data = array{
+    'price' => '250000',
+    'title' => 'Lorem ipsum',
+    'description' => 'Lorem ipsum',
+    'area' => '80',
+    'rooms' => '3',
+    'rooms' => '3',
+    'offer_type' => 'sale',
+    'floor' => '3',
+    'built' => '1999',
+    'balconies' => '1',
+    'balconies' => '1',
+    'windows' => 'Lorem ipsum',
+    'city' => 'Warszawa',
+    'draft' => '1',
+    'garage' => '',
+    'basement' => '1',
+    'underground_parking' => '',
+    'parking_place' => '1',
+    'secure_parking' => '',
+    'volume' =>  '0',
+    'photos' => array(
+            'photo_name_1' => 'http://domain.com/photo_name_1.jpg',
+            'photo_name_2' => 'http://domain.com/photo_name_2.bmp',
+            'photo_name_3' => 'http://domain.com/photo_name_3.jpeg'
+    )
+}
+```
+
+Return values
+
+```
+HTTP/1.1 200 Created
+Content-Length: 18
+Content-Type: application/json
+
+"Property added"
+```
+
 ## Delete
 
 Permanently delete property with all files belonging.
