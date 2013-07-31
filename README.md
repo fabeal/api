@@ -64,6 +64,10 @@ curl -i -X GET https://fabeal.com/api/v1/ping
 ```
 * Our library with extended examples written in PHP
 
+Values
+------------------------
+We accept only plain data - without json, xml etc.
+We always return data in JSON.
 
 Verification
 ------------------------
@@ -96,4 +100,24 @@ Calling `ping`
 
 ```
 GET: https://fabeal.com/api/v1/ping
+```
+
+## Delete
+
+Permanently delete property with all files belonging.
+
+Calling `delete`
+
+```
+DELETE: https://fabeal.com/api/v1/property/[[id]]
+```
+
+Return values
+
+```
+HTTP/1.1 200 Created
+Content-Length: 18
+Content-Type: application/json
+
+"Property removed"
 ```
