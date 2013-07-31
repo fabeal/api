@@ -67,8 +67,8 @@ curl -i -X GET https://fabeal.com/api/v1/ping
 
 Verification
 ------------------------
-Every call to our api except ping will check you by API key. Every business in Fabeal has its own api key. Api key can
-be included to url:
+Every call to our api except ping will check you by API key. Every business in Fabeal has its own api key which is private.
+Api key can be included to url:
 ```
 https://fabeal.com/api/v1/property/add?api_key=[[key]]
 ```
