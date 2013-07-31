@@ -77,7 +77,8 @@ or can be included to POST/PUT/DELETE data providing that is not nested.
 
 Watermarks
 ------------------------
-If you have selected option to default draw watermarks on images all photos added/updated by api will have watermark.
+If you have selected option to default draw watermarks on images all photos added/updated by api will have watermark,
+draw_watermark set to false temporary overwrite default settings.
 Calling fabeal api you can add option 'draw_watermark' = false|true.
 Watermark variable can be included to url:
 ```
