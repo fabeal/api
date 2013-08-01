@@ -22,6 +22,10 @@ $client->add_property(array(
 	'area' => 50,
 	'city' => 'Świnoujście',
 	'garage' => 1,
+	'photos' => array(
+		'photo_1' => 'http://domain.com/image1.jpg',
+		'photo_2' => 'http://domain.com/image1.bmp'
+	)
 
 ));
 
