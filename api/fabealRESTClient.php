@@ -75,7 +75,7 @@ class fabealRESTClient
 	public function add_property($params = array())
 	{
 		$this->checkParameters(array($params['price'], $params['title'], $this->api_key));
-		return $this->call('property', 'POST');
+		return $this->call('property', 'POST', $params);
 	}
 
 
@@ -109,31 +109,32 @@ class fabealRESTClient
 		$url = self::HOST . $api_method .'?api_key='. $this->api_key;
 
 		//also as get method
-		$options = $options_std = array(
-			CURLOPT_URL             => $url,
-			CURLOPT_FRESH_CONNECT   => 1,
-			CURLOPT_RETURNTRANSFER  => 1,
-			CURLOPT_FORBID_REUSE    => 1,
-			CURLOPT_HEADER          => 0,
-			CURLOPT_TIMEOUT         => self::TIMEOUT,
+		$options = array(
+			CURLOPT_URL => $url,
+			CURLOPT_FRESH_CONNECT => 1,
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_FORBID_REUSE => 1,
+			CURLOPT_HEADER => 0,
+			CURLOPT_TIMEOUT => self::TIMEOUT,
 		);
 
-		if($http_method == 'POST')
-			$options = array_merge($options_std, array(
+		if($http_method == 'POST') {
+			$options += array(
 				CURLOPT_POST => 1,
 				CURLOPT_POSTFIELDS => http_build_query($params)
-			));
-
-		else if($http_method == 'PUT')
-			$options = array_merge($options_std, array(
+			);
+		}
+		else if($http_method == 'PUT') {
+			$options += array(
 				CURLOPT_PUT => 1,
-			));
-
-		else if($http_method == 'DELETE')
-			$options = array_merge($options_std, array(
-				CURLOPT_CUSTOMREQUEST => 'DELETE',
 				CURLOPT_POSTFIELDS => http_build_query($params)
-			));
+			);
+		}
+		else if($http_method == 'DELETE') {
+			$options += array(
+				CURLOPT_CUSTOMREQUEST => 'DELETE'
+			);
+		}
 
 		$curl = curl_init();
 		curl_setopt_array($curl, $options);
