@@ -16,16 +16,26 @@ $result = $client->ping();
 print_r($result);
 
 $client->add_property(array(
-	'price' => '2500000',
-	'title' => 'New house',
-	'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
-	'area' => 50,
-	'city' => 'Świnoujście',
-	'garage' => 1,
-	'photos' => array(
-		'photo_1' => 'http://domain.com/image1.jpg',
-		'photo_2' => 'http://domain.com/image1.bmp'
-	)
+	'price'         => '2500000',
+	'title'         => 'New house',
+	'description'   => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+	'area'          => 50,
+	'rooms'         => 3,
+	'offer_type'    => 'sale',//or 'rent'
+	'built'         => '1998',
+	'city'          => 'Świnoujście',
+	'street'        => 'Józefa Piłsudskiego',
+	'floor'         => 5,
+	'windows'       => '4 wood and 1 plastic',
+	'garage'        => 1,
+	'basement'      => 1,
+	'parking_place' => 1,
+	'secure_parking'=> 1,
+	'photos'        => array(
+						'photo_1' => 'http://domain.com/image1.jpg',
+						'photo_2' => 'http://domain.com/image1.bmp'
+					),
+	'underground_parking' => 1,
 
 ));
 
