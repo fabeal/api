@@ -149,6 +149,8 @@ Content-Type: application/json
 
 "Property added"
 ```
+We accept max 30 photos, if there will be more than 30 - no photos will be added.
+
 
 ## Delete
 
