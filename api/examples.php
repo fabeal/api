@@ -43,6 +43,13 @@ $client->add_property(array(
 $result = $client->get_property(1);
 print_r($result);
 
+
+$result = $client->update_Property(1, array(
+	'price'         => '2500001',
+));
+print_r($result);
+
+
 //delete 1 property
 $result = $client->delete_property(1);
 print_r($result);

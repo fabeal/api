@@ -80,6 +80,21 @@ class fabealRESTClient
 
 
 	/**
+	 * cal update property by id
+	 *
+	 * @param null $id
+	 * @param array $params
+	 * @return mixed|string
+	 */
+	public function update_property($id = null, $params = array())
+	{
+		if(!is_numeric($id) or !is_array($params) or empty($params)) return 'Invalid params, please fill property data or property id.';
+
+		return $this->call('property/'. (int) $id, 'PUT', $params);
+	}
+
+
+	/**
 	 * delete selected property
 	 *
 	 * @param null $id
@@ -114,20 +129,20 @@ class fabealRESTClient
 			CURLOPT_FRESH_CONNECT => 1,
 			CURLOPT_RETURNTRANSFER => 1,
 			CURLOPT_FORBID_REUSE => 1,
-			CURLOPT_HEADER => 0,
 			CURLOPT_TIMEOUT => self::TIMEOUT,
 		);
 
 		if($http_method == 'POST') {
 			$options += array(
 				CURLOPT_POST => 1,
-				CURLOPT_POSTFIELDS => http_build_query($params)
+				CURLOPT_POSTFIELDS => http_build_query($params),
+				CURLOPT_HEADER => 0,
 			);
 		}
 		else if($http_method == 'PUT') {
 			$options += array(
-				CURLOPT_PUT => 1,
-				CURLOPT_POSTFIELDS => http_build_query($params)
+				CURLOPT_CUSTOMREQUEST => 'PUT',
+				CURLOPT_POSTFIELDS => http_build_query($params),
 			);
 		}
 		else if($http_method == 'DELETE') {
