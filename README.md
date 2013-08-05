@@ -140,7 +140,7 @@ POST: https://fabeal.com/api/v1/property
 
 Return values
 
-```json
+```
 HTTP/1.1 200 Created
 Content-Length: 16
 Content-Type: application/json
@@ -177,9 +177,10 @@ Update request will change only this fields which were in JSON array.
 
 Calling `update`
 
-```json
+```
 PUT: https://fabeal.com/api/v1/property/[[id]]
-
+```
+```json
 {
 	"price"        :"2500001",
 	"title"        :"New data",
