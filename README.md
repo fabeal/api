@@ -179,7 +179,7 @@ Content-Type: application/json
 ```
 
 
-##
+## Update
 
 Update request will change only this fields which were in JSON array.
 
@@ -219,3 +219,11 @@ Content-Type: application/json
 
 "Property updated"
 ```
+
+
+
+Todo
+------------------------
+We are currently working on API upgrade with following features:
+* Search method should have 'between' scope
+* Get multiple offers with one request
