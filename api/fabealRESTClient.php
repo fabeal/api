@@ -121,6 +121,7 @@ class fabealRESTClient
 		if(empty($api_method))
 			throw new Exception('Empty api_method!');
 
+		$params = json_encode($params);
 		$url = self::HOST . $api_method .'?api_key='. $this->api_key;
 
 		//also as get method
@@ -135,14 +136,21 @@ class fabealRESTClient
 		if($http_method == 'POST') {
 			$options += array(
 				CURLOPT_POST => 1,
-				CURLOPT_POSTFIELDS => http_build_query($params),
-				CURLOPT_HEADER => 0,
+				CURLOPT_POSTFIELDS => $params,
+				CURLOPT_HTTPHEADER => array(
+					'Content-Type: application/json',
+					'Content-Length: ' . strlen($params)
+				)
 			);
 		}
 		else if($http_method == 'PUT') {
 			$options += array(
 				CURLOPT_CUSTOMREQUEST => 'PUT',
-				CURLOPT_POSTFIELDS => http_build_query($params),
+				CURLOPT_POSTFIELDS => $params,
+				CURLOPT_HTTPHEADER => array(
+					'Content-Type: application/json',
+					'Content-Length: ' . strlen($params)
+				)
 			);
 		}
 		else if($http_method == 'DELETE') {

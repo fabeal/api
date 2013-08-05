@@ -108,7 +108,7 @@ Add property with all details and photos.
 
 Calling `Add`
 
-```
+```json
 POST: https://fabeal.com/api/v1/property
 
 data = array{
@@ -142,7 +142,7 @@ data = array{
 
 Return values
 
-```
+```json
 HTTP/1.1 200 Created
 Content-Length: 16
 Content-Type: application/json
@@ -164,10 +164,37 @@ DELETE: https://fabeal.com/api/v1/property/[[id]]
 
 Return values
 
-```
+```json
 HTTP/1.1 200 Created
 Content-Length: 18
 Content-Type: application/json
 
 "Property removed"
+```
+
+
+##
+
+Update request will change only this fields which were in JSON array.
+
+Calling `update`
+
+```json
+PUT: https://fabeal.com/api/v1/property/[[id]]
+
+{
+	"price"        :"2500001",
+	"title"        :"New data",
+	"description"  :"New data",
+	"windows"      :"Broken"
+}
+```
+Response
+
+```json
+HTTP/1.1 200 Created
+Content-Length: 17
+Content-Type: application/json
+
+"Property updated"
 ```
