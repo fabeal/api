@@ -90,6 +90,14 @@ https://fabeal.com/api/v1/property/add?api_key=[[key]]&draw_watermark=[[bool]]
 ```
 or can be included to POST/PUT/DELETE data providing that is not nested.
 
+Photos extensions
+------------------------
+Our api during API request with photos will download photos from external services by your links. We accept only the following file extensions:
+* jpg
+* jpeg
+* bmp
+* png
+
 
 ## Ping
 
