@@ -66,7 +66,7 @@ curl -i -X GET https://fabeal.com/api/v1/ping
 
 Values
 ------------------------
-We accept only plain data - without json, xml etc.
+We accept only data in JSON.
 We always return data in JSON.
 
 Verification
@@ -112,24 +112,24 @@ POST: https://fabeal.com/api/v1/property
 ```
 ```json
 {
-	"price"             :"250000",
-	"title"             :"Lorem ipsum",
-	"description"       :"Lorem ipsum",
-	"area"              :"80",
-	"rooms"             :"3",
-	"offer_type"        :"sale",
-	"floor"             :"3",
-	"built"             :"1999",
-	"balconies"         :"1",
-	"windows"           :"Lorem ipsum",
-	"city"              :"Warszawa",
-	"draft"             :"1",
-	"garage"            :"",
-	"basement"          :"1",
-	"parking_place"     :"1",
-	"secure_parking"    :"",
-	"volume"            :"0",
-	"underground_parking":"",
+	"price"                 :"250000",
+	"title"                 :"Lorem ipsum",
+	"description"           :"Lorem ipsum",
+	"area"                  :"80",
+	"rooms"                 :"3",
+	"offer_type"            :"sale",
+	"floor"                 :"3",
+	"built"                 :"1999",
+	"balconies"             :"1",
+	"windows"               :"Lorem ipsum",
+	"city"                  :"Warszawa",
+	"draft"                 :"1",
+	"garage"                :"",
+	"basement"              :"1",
+	"parking_place"         :"1",
+	"secure_parking"        :"",
+	"volume"                :"0",
+	"underground_parking"   :"",
 	"photos":{
 			"photo_name_1":"http:\/\/domain.com\/photo_name_1.jpg",
 			"photo_name_2":"http:\/\/domain.com\/photo_name_2.bmp",
@@ -185,7 +185,21 @@ PUT: https://fabeal.com/api/v1/property/[[id]]
 	"price"        :"2500001",
 	"title"        :"New data",
 	"description"  :"New data",
-	"windows"      :"Broken"
+	"windows"      :"Broken".
+	"area"         :"80",
+	"rooms"        :"3",
+	"offer_type"   :"sale",
+	"floor"        :"3",
+	"built"        :"1999",
+	"balconies"    :"1",
+	"windows"      :"Lorem ipsum",
+	"city"         :"Warszawa",
+	"draft"        :"1",
+	"photos":{
+	        "photo_name_1":"http:\/\/domain.com\/photo_name_1.jpg",
+	        "photo_name_2":"http:\/\/domain.com\/photo_name_2.bmp",
+	        "photo_name_3":"http:\/\/domain.com\/photo_name_3.jpeg"
+	        }
 }
 ```
 Response
