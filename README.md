@@ -193,7 +193,7 @@ PUT: https://fabeal.com/api/v1/property/[[id]]
 	"price"        :"2500001",
 	"title"        :"New data",
 	"description"  :"New data",
-	"windows"      :"Broken".
+	"windows"      :"Broken",
 	"area"         :"80",
 	"rooms"        :"3",
 	"offer_type"   :"sale",
@@ -220,6 +220,42 @@ Content-Type: application/json
 "Property updated"
 ```
 
+## Search
+
+Search properties is very useful method which return founded properties IDs. Possible logical operators:
+* =
+* >
+* <
+* !=
+* >=
+* <=
+all scopes can be combined - this work like (SQL)where conditions.
+
+Calling `Search`
+```
+POST: https://fabeal.com/api/v1/properties/search
+```
+{
+	"price":[
+				"250000",">="
+			],
+	"rooms":[
+				"3","="
+			]
+}
+```
+
+Return values
+```
+HTTP/1.1 200 Created
+Content-Length: 52
+Content-Type: application/json
+```
+```json
+[
+	"1563568","89489156","519489","989887","625899"
+]
+```
 
 
 Todo
@@ -227,3 +263,4 @@ Todo
 We are currently working on API upgrade with following features:
 * Search method should have 'between' scope
 * Get multiple offers with one request
+* Set multiple offers with one request

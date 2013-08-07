@@ -44,11 +44,18 @@ $result = $client->get_property(1);
 print_r($result);
 
 
-$result = $client->update_Property(1, array(
+$result = $client->update_property(1, array(
 	'price'         => '2500001',
 ));
 print_r($result);
 
+
+$result = $client->search_property(array(
+	'price' => array('250000', '>='),
+	'rooms' => array('3', '='),
+));
+echo "<h1>HTTP status: $client->http_status</h1><br/>";
+print_r($result);
 
 //delete 1 property
 $result = $client->delete_property(1);

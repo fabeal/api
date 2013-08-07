@@ -11,9 +11,9 @@
 class fabealRESTClient
 {
 	/**
-	 * host with available api
+	 * @var string host with available api
 	 */
-	const HOST = 'https://fabeal.com/api/v1/';
+	const HOST = 'http://fabeal.v.l/api/v1/';
 
 	/**
 	 * connections timeout
@@ -21,19 +21,24 @@ class fabealRESTClient
 	const TIMEOUT = 7;
 
 	/**
+	 * @var int http status
+	 */
+	public $http_status;
+
+	/**
 	 * @var string api key current calls
 	 */
 	public $api_key;
 
-	function __construct($key){
+	function __construct($api_key){
 		if(!extension_loaded('curl') or !extension_loaded('json'))
 			throw new Exception('Missing curl or json extension!');
 
-		$this->api_key = $key;
+		$this->api_key = $api_key;
 	}
 
 	/**
-	 * validate strict presence parameters
+	 * walidate strict presence parameters
 	 *
 	 * @param array $params
 	 * @throws Exception
@@ -78,6 +83,16 @@ class fabealRESTClient
 		return $this->call('property', 'POST', $params);
 	}
 
+	/**
+	 * search property
+	 * @param array $params
+	 * @return mixed
+	 */
+	public function search_property($params = array())
+	{
+		$this->checkParameters($params);
+		return $this->call('properties/search', 'POST', $params);
+	}
 
 	/**
 	 * cal update property by id
@@ -89,7 +104,6 @@ class fabealRESTClient
 	public function update_property($id = null, $params = array())
 	{
 		if(!is_numeric($id) or !is_array($params) or empty($params)) return 'Invalid params, please fill property data or property id.';
-
 		return $this->call('property/'. (int) $id, 'PUT', $params);
 	}
 
@@ -137,33 +151,30 @@ class fabealRESTClient
 			$options += array(
 				CURLOPT_POST => 1,
 				CURLOPT_POSTFIELDS => $params,
-				CURLOPT_HTTPHEADER => array(
-					'Content-Type: application/json',
-					'Content-Length: ' . strlen($params)
-				)
+				CURLOPT_HEADER => 0,
 			);
 		}
 		else if($http_method == 'PUT') {
 			$options += array(
 				CURLOPT_CUSTOMREQUEST => 'PUT',
 				CURLOPT_POSTFIELDS => $params,
-				CURLOPT_HTTPHEADER => array(
-					'Content-Type: application/json',
-					'Content-Length: ' . strlen($params)
-				)
+				CURLOPT_HEADER => 0,
 			);
 		}
 		else if($http_method == 'DELETE') {
 			$options += array(
-				CURLOPT_CUSTOMREQUEST => 'DELETE'
+				CURLOPT_CUSTOMREQUEST => 'DELETE',
+				CURLOPT_POSTFIELDS => $params,
+				CURLOPT_HEADER => 0,
 			);
 		}
 
 		$curl = curl_init();
 		curl_setopt_array($curl, $options);
 		$result = curl_exec($curl);
-		curl_close($curl);
 
+		$this->http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+		curl_close($curl);
 		return json_decode($result);
 	}
 }
