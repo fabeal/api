@@ -229,12 +229,14 @@ Search properties is very useful method which return founded properties IDs. Pos
 * !=
 * >=
 * <=
+
 all scopes can be combined - this work like (SQL)where conditions.
 
 Calling `Search`
 ```
 POST: https://fabeal.com/api/v1/properties/search
 ```
+```json
 {
 	"price":[
 				"250000",">="
